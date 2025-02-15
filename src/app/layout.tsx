@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MainLayout } from "@/layouts/MainLayout";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "C-GEFRO",
@@ -16,7 +18,8 @@ export default function RootLayout({
       <body
         className={`antialiased`}
       >
-        {children}
+        <MainLayout>{children}</MainLayout>
+        <Toaster />
       </body>
     </html>
   );
