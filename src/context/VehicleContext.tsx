@@ -1,3 +1,5 @@
+"use client";
+
 import { getColors } from "@/features/color/api/get-colors";
 import { Color } from "@/features/color/types/color";
 import { getCompanies } from "@/features/company/api/get-companies";
