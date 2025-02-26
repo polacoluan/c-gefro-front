@@ -4,6 +4,7 @@ import {
   CarFront,
   CarIcon,
   Castle,
+  ChartNetwork,
   Fuel,
   Home,
   KeySquare,
@@ -79,6 +80,11 @@ const items = [
     title: "Sub Unidades",
     url: "sub-unity",
     icon: Castle,
+  },
+  {
+    title: "Status",
+    url: "status",
+    icon: ChartNetwork,
   },
 ];
 
