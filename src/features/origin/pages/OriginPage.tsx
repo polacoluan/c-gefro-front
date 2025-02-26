@@ -1,21 +1,21 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getMarks } from "@/features/mark/api/get-marks";
+import { getOrigins } from "@/features/origin/api/get-origins";
 import { columns } from "../components/OriginColumns";
 import { DataTable } from "../components/OriginDataTable";
 import CreateForm from "../components/OriginCreateForm";
 import Loader from "@/components/loading";
 
-const markPage = () => {
-  const [Mark, setMark] = useState<any[]>([]);
+const originPage = () => {
+  const [origins, setOrigins] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setIsLoading(true);
-        const data = await getMarks();
-        setMark(data);
+        const data = await getOrigins();
+        setOrigins(data);
       } catch (error) {
         console.error("Erro ao carregar os dados:", error);
       } finally {
@@ -26,30 +26,34 @@ const markPage = () => {
     fetchUsers();
   }, []);
 
-  const reloadMark = async () => {
+  const reloadOrigin = async () => {
     try {
-      const data = await getMarks();
-      setMark(data);
+      const data = await getOrigins();
+      setOrigins(data);
     } catch (error) {
-      console.error("Error reloading Mark:", error);
+      console.error("Error reloading Origin:", error);
     }
   };
-  
+
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Gestão de Marcas</h1>
+      <h1 className="text-2xl font-bold mb-6">Gestão de Origens</h1>
       {isLoading ? (
         <Loader />
       ) : (
         <div>
           <div className="text-right">
-            <CreateForm onMarkCreated={reloadMark} />
+            <CreateForm onOriginCreated={reloadOrigin} />
           </div>
-          <DataTable columns={columns} data={Mark} reloadMarks={reloadMark} />
+          <DataTable
+            columns={columns}
+            data={origins}
+            reloadOrigins={reloadOrigin}
+          />
         </div>
       )}
     </div>
   );
 };
 
-export default markPage;
+export default originPage;
