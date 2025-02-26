@@ -1,6 +1,6 @@
 import { httpGet } from '@/services/api/http';
 
-export async function getOrigem(): Promise<any> {
+export async function getOrigins(): Promise<any> {
     try {
         const API_URL = '/origins';
 
