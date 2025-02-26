@@ -1,25 +1,31 @@
-import type { Metadata } from "next";
+"use client";
+
 import "./globals.css";
 import { MainLayout } from "@/layouts/MainLayout";
 import { Toaster } from "@/components/ui/toaster";
+import { usePathname } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: "C-GEFRO",
-  description: "C-GEFRO",
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+  const excludedRoutes = ['/auth/signin', '/auth/signup'];
+
+  const isExcluded = excludedRoutes.includes(pathname);
+
   return (
-    <html lang="en">
-      <body
-        className={`antialiased`}
-      >
-        <MainLayout>{children}</MainLayout>
-        <Toaster />
+    <html lang="pt-br">
+      <head>
+        <title>C-GEFRO</title>
+      </head>
+      <body>
+        {isExcluded ? (
+          children
+        ) : (
+          <div>
+            <MainLayout>{children}</MainLayout>
+            <Toaster />
+          </div>
+        )}
       </body>
     </html>
   );

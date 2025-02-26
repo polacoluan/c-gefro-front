@@ -1,4 +1,16 @@
-import { Home, Type } from "lucide-react"
+import {
+  Building2,
+  Car,
+  CarFront,
+  CarIcon,
+  Castle,
+  Fuel,
+  Home,
+  KeySquare,
+  PaintRoller,
+  Type,
+  Warehouse,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -9,8 +21,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
 
 const items = [
   {
@@ -19,9 +31,54 @@ const items = [
     icon: Home,
   },
   {
+    title: "Veículos",
+    url: "vehicle",
+    icon: CarIcon,
+  },
+  {
     title: "Tipos",
     url: "type",
     icon: Type,
+  },
+  {
+    title: "Marcas",
+    url: "mark",
+    icon: CarFront,
+  },
+  {
+    title: "Modelos",
+    url: "model",
+    icon: Car,
+  },
+  {
+    title: "Cores",
+    url: "color",
+    icon: PaintRoller,
+  },
+  {
+    title: "Orgãos",
+    url: "company",
+    icon: Building2,
+  },
+  {
+    title: "Frotas",
+    url: "fleet",
+    icon: KeySquare,
+  },
+  {
+    title: "Combustíveis",
+    url: "fuel",
+    icon: Fuel,
+  },
+  {
+    title: "Origens",
+    url: "origin",
+    icon: Warehouse,
+  },
+  {
+    title: "Sub Unidades",
+    url: "sub-unity",
+    icon: Castle,
   },
 ];
 
@@ -48,5 +105,5 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
-  )
+  );
 }
