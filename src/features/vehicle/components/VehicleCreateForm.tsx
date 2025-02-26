@@ -44,6 +44,7 @@ const formSchema = z.object({
   engine_number: z.string(),
   renavam: z.string(),
   year: z.string(),
+  capacity: z.string(),
   color_id: z.string(),
   company_id: z.string(),
   fleet_id: z.string(),
@@ -82,6 +83,7 @@ export default function CreateForm({
       engine_number: "",
       renavam: "",
       year: "",
+      capacity: "",
       color_id: "",
       company_id: "",
       fleet_id: "",
@@ -233,6 +235,22 @@ export default function CreateForm({
                     </FormControl>
                     <FormDescription>
                       Este é o ano do seu veículo.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="capacity"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Capacidade</FormLabel>
+                    <FormControl>
+                      <Input {...field} required />
+                    </FormControl>
+                    <FormDescription>
+                      Esta é a capacidade do seu veículo.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
