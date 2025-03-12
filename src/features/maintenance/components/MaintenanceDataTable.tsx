@@ -34,8 +34,8 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-  reloadVehicles,
-}: DataTableProps<TData, TValue> & { reloadVehicles?: () => void }) {
+  reloadMaintenances,
+}: DataTableProps<TData, TValue> & { reloadMaintenances?: () => void }) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -60,10 +60,12 @@ export function DataTable<TData, TValue>({
     <div>
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filtrar modelos..."
-          value={(table.getColumn("vehicle")?.getFilterValue() as string) ?? ""}
+          placeholder="Filtrar manutenções..."
+          value={
+            (table.getColumn("maintenance")?.getFilterValue() as string) ?? ""
+          }
           onChange={(event) =>
-            table.getColumn("vehicle")?.setFilterValue(event.target.value)
+            table.getColumn("maintenance")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -80,7 +82,7 @@ export function DataTable<TData, TValue>({
                         ? null
                         : flexRender(header.column.columnDef.header, {
                             ...header.getContext(),
-                            reloadVehicles,
+                            reloadMaintenances,
                           })}
                     </TableHead>
                   );
@@ -99,7 +101,7 @@ export function DataTable<TData, TValue>({
                     <TableCell key={cell.id}>
                       {flexRender(cell.column.columnDef.cell, {
                         ...cell.getContext(),
-                        reloadVehicles,
+                        reloadMaintenances,
                       })}
                     </TableCell>
                   ))}

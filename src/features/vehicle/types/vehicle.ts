@@ -1,5 +1,6 @@
 export type Vehicle = {
     id: string;
+    vehicle: string;
     plate: string;
     prefix: string;
     tracker: boolean;

@@ -9,6 +9,7 @@ import {
   Home,
   KeySquare,
   PaintRoller,
+  Settings,
   Type,
   Warehouse,
 } from "lucide-react";
@@ -85,6 +86,11 @@ const items = [
     title: "Status",
     url: "status",
     icon: ChartNetwork,
+  },
+  {
+    title: "Manutenções",
+    url: "maintenance",
+    icon: Settings,
   },
 ];
 

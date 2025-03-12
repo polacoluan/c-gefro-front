@@ -63,7 +63,6 @@ export default function CreateForm({
   onVehicleCreated: () => void;
 }) {
   const { colors } = useVehicle();
-  const { companies } = useVehicle();
   const { fleets } = useVehicle();
   const { fuels } = useVehicle();
   const { marks } = useVehicle();

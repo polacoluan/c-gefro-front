@@ -2,82 +2,96 @@
 
 import React from "react";
 import { ColumnDef, CellContext } from "@tanstack/react-table";
-import { Vehicle } from "../types/vehicle";
+import { Maintenance } from "../types/maintenance";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import EditForm from "./VehcileEditForm";
-import DeleteDialog from "./VehicleDeleteDialog";
+import EditForm from "./MaintenanceEditForm";
+import DeleteDialog from "./MaintenanceDeleteDialog";
 
 interface CustomCellContext<TData> extends CellContext<TData, unknown> {
-  reloadVehicles?: () => void;
+  reloadMaintenances?: () => void;
 }
 
-export const columns: ColumnDef<Vehicle, unknown>[] = [
+export const columns: ColumnDef<Maintenance, unknown>[] = [
   {
-    accessorKey: "vehicle",
+    accessorKey: "maintenance",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Veículo
+          Manutenção
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
   },
   {
-    accessorKey: "plate",
+    accessorKey: "description",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Placa
+          Descrição
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
   },
   {
-    accessorKey: "prefix",
+    accessorKey: "cost",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Prefixo
+          Custo
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
   },
   {
-    accessorKey: "tracker_pt",
+    accessorKey: "kilometers",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Rastreador
+          KM's
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
   },
   {
-    accessorKey: "renavam",
+    accessorKey: "date",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Renavam
+          Date
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "next_maintenance",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Pŕoxima Manutenção
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -88,20 +102,20 @@ export const columns: ColumnDef<Vehicle, unknown>[] = [
     header: () => {
       return <div>Ações</div>;
     },
-    cell: ({ row, reloadVehicles }: CustomCellContext<Vehicle>) => {
-      const vehicle = row.original as Vehicle;
+    cell: ({ row, reloadMaintenances }: CustomCellContext<Maintenance>) => {
+      const maintenance = row.original as Maintenance;
 
       return (
         <div>
           <EditForm
-            vehicle={vehicle}
-            vehicleId={vehicle.id}
-            reloadVehicles={reloadVehicles}
+            maintenance={maintenance}
+            maintenanceId={maintenance.id}
+            reloadMaintenances={reloadMaintenances}
           />
           <DeleteDialog
-            vehicle={vehicle}
-            vehicleId={vehicle.id}
-            reloadVehicles={reloadVehicles}
+            maintenance={maintenance}
+            maintenanceId={maintenance.id}
+            reloadMaintenances={reloadMaintenances}
           />
         </div>
       );
