@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getFleets(): Promise<any> {
     try {
-        const API_URL = '/fleets';
+        const API_URL = '/fleets?limit=0';
 
         const response: any = await httpGet(API_URL);
 

@@ -7,6 +7,7 @@ import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EditForm from "./VehcileEditForm";
 import DeleteDialog from "./VehicleDeleteDialog";
+import Link from "next/link";
 
 interface CustomCellContext<TData> extends CellContext<TData, unknown> {
   reloadVehicles?: () => void;
@@ -92,12 +93,13 @@ export const columns: ColumnDef<Vehicle, unknown>[] = [
       const vehicle = row.original as Vehicle;
 
       return (
-        <div>
-          <EditForm
-            vehicle={vehicle}
-            vehicleId={vehicle.id}
-            reloadVehicles={reloadVehicles}
-          />
+        <div className="space-x-2">
+          <Link
+            href={`/vehicle/edit/${vehicle.id}`}
+            className="border rounded-md p-3 hover:bg-muted"
+          >
+            Editar
+          </Link>
           <DeleteDialog
             vehicle={vehicle}
             vehicleId={vehicle.id}

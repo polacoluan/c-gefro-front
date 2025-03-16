@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getSubUnities(): Promise<any> {
     try {
-        const API_URL = '/sub-unities';
+        const API_URL = '/sub-unities?limit=0';
 
         const response: any = await httpGet(API_URL);
 

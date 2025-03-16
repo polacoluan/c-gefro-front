@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getMarks(): Promise<any> {
     try {
-        const API_URL = '/marks';
+        const API_URL = '/marks?limit=0';
 
         const response: any = await httpGet(API_URL);
 

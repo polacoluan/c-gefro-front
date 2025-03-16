@@ -14,6 +14,7 @@ export async function createVehicle(data: Vehicle): Promise<any> {
             engine_number: data.engine_number,
             renavam: data.renavam,
             year: data.year,
+            capacity: data.capacity,
             color_id: data.color_id,
             company_id: data.company_id,
             fleet_id: data.fleet_id,
@@ -27,9 +28,13 @@ export async function createVehicle(data: Vehicle): Promise<any> {
         });
 
         return {
-            message: 'Veículo criado com sucesso.'
+            success: true,
+            message: 'Veículo criado com sucesso!'
         }
     } catch (error) {
-        throw new Error('Falha ao criar Veículo');
+        return {
+            success: false,
+            message: 'Falha ao criar o veículo!'
+        }
     }
 }

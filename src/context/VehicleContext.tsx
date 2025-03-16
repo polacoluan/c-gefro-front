@@ -33,6 +33,7 @@ interface DataContextValue {
   status: Status[];
   subUnities: SubUnity[];
   types: Type[];
+  isLoadingData: boolean;
 }
 
 const VehicleContext = createContext<DataContextValue | null>(null);
@@ -52,6 +53,7 @@ export const VehicleProvider = ({
   const [status, setStatus] = useState<Status[]>([]);
   const [subUnities, setSubUnities] = useState<SubUnity[]>([]);
   const [types, setTypes] = useState<Type[]>([]);
+  const [isLoadingData, setIsLoadingData] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,6 +94,8 @@ export const VehicleProvider = ({
         setTypes(typesData);
       } catch {
         console.error("Erro ao buscar dados.");
+      } finally {
+        setIsLoadingData(false);
       }
     };
 
@@ -111,6 +115,7 @@ export const VehicleProvider = ({
         status,
         subUnities,
         types,
+        isLoadingData,
       }}
     >
       {children}

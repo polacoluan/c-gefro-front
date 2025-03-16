@@ -39,10 +39,8 @@ export default function DeleteDialog({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="bg-red-500 rounded-full p-2">
-        <p className="flex text-white font-medium">
-          <Trash color="#ffffff" height={15} /> Excluir
-        </p>
+      <AlertDialogTrigger className="border rounded-md p-3 hover:bg-muted">
+        Excluir
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

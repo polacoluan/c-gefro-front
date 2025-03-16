@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getStatus(): Promise<any> {
     try {
-        const API_URL = '/status';
+        const API_URL = '/status?limit=0';
 
         const response: any = await httpGet(API_URL);
 

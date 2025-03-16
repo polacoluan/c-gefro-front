@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getFuels(): Promise<any> {
     try {
-        const API_URL = '/fuels';
+        const API_URL = '/fuels?limit=0';
 
         const response: any = await httpGet(API_URL);
 

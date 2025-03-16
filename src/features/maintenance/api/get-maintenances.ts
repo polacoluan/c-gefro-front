@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getMaintenances(): Promise<any> {
     try {
-        const API_URL = '/maintenances';
+        const API_URL = '/maintenances?limit=0';
 
         const response: any = await httpGet(API_URL);
 

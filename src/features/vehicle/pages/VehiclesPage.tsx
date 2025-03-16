@@ -7,7 +7,7 @@ import { DataTable } from "../components/VehicleDataTable";
 import CreateForm from "../components/VehicleCreateForm";
 import Loader from "@/components/loading";
 
-const markPage = () => {
+const vehiclesPage = () => {
   const [Vehicle, setVehicle] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -43,7 +43,7 @@ const markPage = () => {
       ) : (
         <div>
           <div className="text-right">
-            <CreateForm onVehicleCreated={reloadVehicle} />
+            <CreateForm />
           </div>
           <DataTable
             columns={columns}
@@ -56,4 +56,4 @@ const markPage = () => {
   );
 };
 
-export default markPage;
+export default vehiclesPage;

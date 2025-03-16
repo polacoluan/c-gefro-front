@@ -8,7 +8,7 @@ export type Vehicle = {
     engine_number: string;
     renavam: string;
     year: string;
-    capacity: string;
+    capacity: number;
     color_id: string;
     company_id: string;
     fleet_id: string;

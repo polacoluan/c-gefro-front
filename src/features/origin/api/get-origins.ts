@@ -2,7 +2,7 @@ import { httpGet } from '@/services/api/http';
 
 export async function getOrigins(): Promise<any> {
     try {
-        const API_URL = '/origins';
+        const API_URL = '/origins?limit=0';
 
         const response: any = await httpGet(API_URL);
 
