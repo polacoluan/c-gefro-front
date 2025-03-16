@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import { getVehicles } from "@/features/vehicle/api/get-vehicles";
 import { columns } from "../components/VehicleColumns";
 import { DataTable } from "../components/VehicleDataTable";
-import CreateForm from "../components/VehicleCreateForm";
 import Loader from "@/components/loading";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const vehiclesPage = () => {
   const [Vehicle, setVehicle] = useState<any[]>([]);
@@ -35,23 +36,18 @@ const vehiclesPage = () => {
     }
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Gestão de Veículos</h1>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div>
-          <div className="text-right">
-            <CreateForm />
-          </div>
-          <DataTable
-            columns={columns}
-            data={Vehicle}
-            reloadVehicles={reloadVehicle}
-          />
-        </div>
-      )}
+      <DataTable
+        columns={columns}
+        data={Vehicle}
+        reloadVehicles={reloadVehicle}
+      />
     </div>
   );
 };

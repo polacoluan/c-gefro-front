@@ -94,11 +94,8 @@ export const columns: ColumnDef<Vehicle, unknown>[] = [
 
       return (
         <div className="space-x-2">
-          <Link
-            href={`/vehicle/edit/${vehicle.id}`}
-            className="border rounded-md p-3 hover:bg-muted"
-          >
-            Editar
+          <Link href={`/vehicle/edit/${vehicle.id}`}>
+            <Button variant={"secondary"}>Editar</Button>
           </Link>
           <DeleteDialog
             vehicle={vehicle}

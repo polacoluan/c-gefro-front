@@ -13,6 +13,7 @@ import { Vehicle } from "../types/vehicle";
 import { useToast } from "@/hooks/use-toast";
 import { deleteVehicle } from "../api/delete-vehicle";
 import { Trash } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function DeleteDialog({
   vehicle,
@@ -39,8 +40,8 @@ export default function DeleteDialog({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="border rounded-md p-3 hover:bg-muted">
-        Excluir
+      <AlertDialogTrigger asChild>
+        <Button variant={"destructive"}>Excluir</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
