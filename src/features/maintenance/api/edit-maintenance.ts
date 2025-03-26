@@ -17,9 +17,13 @@ export async function editMaintenance(data: Maintenance): Promise<any> {
         });
 
         return {
+            status: true,
             message: 'Manutenção criada com sucesso.'
         }
     } catch (error) {
-        throw new Error('Falha ao editar Manutenção');
+        return {
+            status: false,
+            message:'Falha ao editar Manutenção'
+        }
     }
 }

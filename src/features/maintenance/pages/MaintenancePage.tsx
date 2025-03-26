@@ -35,23 +35,18 @@ const MaintenancePage = () => {
     }
   };
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Gestão de Manutenções</h1>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div>
-          <div className="text-right">
-            <CreateForm onMaintenanceCreated={reloadMaintenances} />
-          </div>
-          <DataTable
-            columns={columns}
-            data={types}
-            reloadMaintenances={reloadMaintenances}
-          />
-        </div>
-      )}
+      <DataTable
+        columns={columns}
+        data={types}
+        reloadMaintenances={reloadMaintenances}
+      />
     </div>
   );
 };

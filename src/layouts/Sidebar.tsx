@@ -34,7 +34,7 @@ const items = [
   },
   {
     title: "Veículos",
-    url: "/vehicles",
+    url: "/vehicle",
     icon: CarIcon,
   },
   {

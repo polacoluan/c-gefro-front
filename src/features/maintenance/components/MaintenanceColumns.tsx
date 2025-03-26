@@ -7,6 +7,7 @@ import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import EditForm from "./MaintenanceEditForm";
 import DeleteDialog from "./MaintenanceDeleteDialog";
+import Link from "next/link";
 
 interface CustomCellContext<TData> extends CellContext<TData, unknown> {
   reloadMaintenances?: () => void;
@@ -106,12 +107,10 @@ export const columns: ColumnDef<Maintenance, unknown>[] = [
       const maintenance = row.original as Maintenance;
 
       return (
-        <div>
-          <EditForm
-            maintenance={maintenance}
-            maintenanceId={maintenance.id}
-            reloadMaintenances={reloadMaintenances}
-          />
+        <div className="space-x-2">
+          <Link href={`/maintenance/edit/${maintenance.id}`}>
+            <Button variant={"secondary"}>Editar</Button>
+          </Link>
           <DeleteDialog
             maintenance={maintenance}
             maintenanceId={maintenance.id}

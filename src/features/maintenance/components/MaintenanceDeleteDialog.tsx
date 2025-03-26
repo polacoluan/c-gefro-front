@@ -13,6 +13,7 @@ import { Maintenance } from "../types/maintenance";
 import { useToast } from "@/hooks/use-toast";
 import { deleteMaintenance } from "../api/delete-maintenance";
 import { Trash } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function DeleteDialog({
   maintenance,
@@ -39,10 +40,8 @@ export default function DeleteDialog({
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="bg-red-500 rounded-full p-2">
-        <p className="flex text-white font-medium">
-          <Trash color="#ffffff" height={15} /> Excluir
-        </p>
+      <AlertDialogTrigger asChild>
+        <Button variant={"destructive"}>Excluir</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

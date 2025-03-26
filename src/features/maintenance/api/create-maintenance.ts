@@ -17,9 +17,14 @@ export async function createMaintenance(data: Maintenance): Promise<any> {
         });
 
         return {
+            status: true,
             message: 'Manutenção criada com sucesso.'
         }
     } catch (error) {
-        throw new Error('Falha ao criar Manutenção');
+       
+        return {
+            status: false,
+            message: 'Falha ao criar Manutenção.'
+        }
     }
 }
